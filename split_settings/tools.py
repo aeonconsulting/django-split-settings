@@ -36,8 +36,8 @@ def include(*args, **kwargs):
         IOError: if a required settings file is not found
     """
     scope = kwargs.pop("scope")
+    confpath = kwargs.pop("path")
     including_file = scope.get('__included_file__', scope['__file__'])
-    confpath = os.path.dirname(including_file)
     for conffile in args:
         saved_included_file = scope.get('__included_file__')
         pattern = os.path.join(confpath, conffile)
